@@ -1,0 +1,3 @@
+test/**/*.spec.js
+--require test/helper
+--reporter dot

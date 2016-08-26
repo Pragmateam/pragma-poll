@@ -1,17 +1,9 @@
-const expect = require('chai').expect;
-const proxyquire = require('proxyquire');
-
-UUIDDouble = {
-  generate: function () {
-    return 'RANDOM_UUID';
-  }
-};
-
-EventBusDouble = {}
+const eventBus = require('./support/in-memory-event-bus');
 
 const Poll = proxyquire('../src/poll', {
-  './uuid': UUIDDouble,
-  './event-bus': EventBusDouble
+  './uuid': require('./support/fake-uuid'),
+  './clock': require('./support/fake-clock'),
+  './event-bus': eventBus
 });
 
 describe('Poll', function() {
@@ -19,8 +11,9 @@ describe('Poll', function() {
 
     it('emits a PollCreated event', function () {
       Poll.create();
-      expect(EventBusDouble.last.name).to.equal('PollCreated');
-      expect(EventBusDouble.last.attributes.uuid).to.equal('RANDOM_UUID')
+      expect(eventBus.last().event).to.equal('PollCreated');
+      expect(eventBus.last().attributes.uuid).to.equal('RANDOM_UUID');
+      expect(eventBus.last().attributes.date).to.equal('2016-08-25T15:27Z');
     });
   });
 });
