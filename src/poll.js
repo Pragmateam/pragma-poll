@@ -12,11 +12,18 @@ module.exports.create = function create () {
 
   return {
     uuid,
+
     addRestaurant: function(restaurantUuid) {
       EventBus.emit('RestaurantAddedToPoll', {
         restaurantUuid,
         pollUuid: uuid
       });
+    },
+
+    close: function () {
+      EventBus.emit('PollClosed', {
+        date: Clock.now()
+      })
     }
   };
 };

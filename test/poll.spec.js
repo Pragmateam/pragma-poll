@@ -36,4 +36,13 @@ describe('Poll', function() {
       ]);
     });
   });
+
+  describe('closing', function () {
+    it('emits a PollClosed event', function () {
+      const poll = Poll.create();
+      expectEmitEvents(poll.close, [
+        { event: 'PollClosed', attributes: { date: '2016-08-25T15:27Z' } }
+      ]);
+    });
+  });
 });
