@@ -3,8 +3,20 @@ const Clock = require('./clock');
 const EventBus = require('./event-bus');
 
 module.exports.create = function create () {
+  const uuid = UUID.generate();
+
   EventBus.emit('PollCreated', {
-    uuid: UUID.generate(),
+    uuid,
     date: Clock.now()
   });
+
+  return {
+    uuid,
+    addRestaurant: function(restaurantUuid) {
+      EventBus.emit('RestaurantAddedToPoll', {
+        restaurantUuid,
+        pollUuid: uuid
+      });
+    }
+  };
 };
