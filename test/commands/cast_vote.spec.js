@@ -9,6 +9,14 @@ describe('CastVote', function () {
     }).to.throw(/poll must exist/i);
   });
 
+  it('ensures user can only cast one vote', function() {
+    expect(function() {
+      CastVote(
+        {pollUuid: 'POLL_UUID', votes: [{restaurantUuid: 'DOES_NOT_MATTER', userUuid: 'USER_UUID'}]},
+        {restaurantUuid: 'DOES_NOT_MATTER', userUuid: 'USER_UUID' });
+    }).to.throw(/only once/);
+  });
+
   it('emits a VoteCasted event', function () {
     const events = CastVote({ pollUuid: 'POLL_UUID' }, { restaurantUuid: 'RESTAURANT_UUID', userUuid: 'USER_UUID' });
     expect(events).to.deep.equal([
