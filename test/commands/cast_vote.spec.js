@@ -1,11 +1,10 @@
-const CastVote = require('proxyquire')('../../src/commands/cast_vote', {
-  '../clock': require('../support/fake-clock')
-});
+const FakeClock = require('../support/fake-clock');
+const CastVote = require('../../src/commands/cast_vote');
 
 describe('CastVote', function () {
   it('ensures the poll exists', function () {
     expect(function () {
-      CastVote({}, { restaurantUuid: 'RESTAURANT_UUID', userUuid: 'USER_UUID' });
+      CastVote({}, { restaurantUuid: 'RESTAURANT_UUID', userUuid: 'USER_UUID' }, FakeClock);
     }).to.throw(/poll must exist/i);
   });
 
@@ -13,12 +12,13 @@ describe('CastVote', function () {
     expect(function() {
       CastVote(
         {pollUuid: 'POLL_UUID', votes: [{restaurantUuid: 'DOES_NOT_MATTER', userUuid: 'USER_UUID'}]},
-        {restaurantUuid: 'DOES_NOT_MATTER', userUuid: 'USER_UUID' });
+        {restaurantUuid: 'DOES_NOT_MATTER', userUuid: 'USER_UUID' },
+        FakeClock);
     }).to.throw(/only once/);
   });
 
   it('emits a VoteCasted event', function () {
-    const events = CastVote({ pollUuid: 'POLL_UUID' }, { restaurantUuid: 'RESTAURANT_UUID', userUuid: 'USER_UUID' });
+    const events = CastVote({ pollUuid: 'POLL_UUID' }, { restaurantUuid: 'RESTAURANT_UUID', userUuid: 'USER_UUID' }, FakeClock);
     expect(events).to.deep.equal([
       {
         name: 'VoteCasted',
