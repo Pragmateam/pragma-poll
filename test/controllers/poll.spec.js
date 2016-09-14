@@ -1,6 +1,6 @@
 const request = require('supertest');
 
-const app = require('../../src/controllers/create_poll');
+const app = require('../../src/controllers/poll');
 
 describe('Create Poll', function () {
   it('creates a poll', function (done) {
