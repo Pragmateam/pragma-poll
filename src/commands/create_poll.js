@@ -3,7 +3,7 @@ const Clock = require('../clock');
 
 module.exports = function CreatePoll () {
   return [{
-    name: 'PollCreated',
+    type: 'PollCreated',
     attributes: {
       uuid: UUID.generate(),
       date: Clock.now()

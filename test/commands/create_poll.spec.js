@@ -7,7 +7,7 @@ describe('CreatePoll', function () {
   it('emits a PollCreated event', function () {
     expect(CreatePoll({})).to.deep.equal([
       {
-        name: 'PollCreated',
+        type: 'PollCreated',
         attributes: {
           uuid: 'RANDOM_UUID',
           date: '2016-08-25T15:27Z'
