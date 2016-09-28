@@ -8,11 +8,6 @@ module.exports = createAggregate({
     CreatePoll: require('../commands/create_poll')
   },
   eventHandlers: {
-    PollCreated: function (state, event) {
-      state.polls.push({
-        uuid: event.attributes.pollUuid
-      });
-      return state;
-    }
+    PollCreated: require('./poll_created')
   }
 });
