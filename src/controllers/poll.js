@@ -5,7 +5,8 @@ const Poll = require('../poll');
 let pollEvents = [];
 
 app.post('/poll', function (request, response) {
-  const events = Poll.dispatchCommand({}, { type: 'CreatePoll' });
+  const currentState = Poll.fromEvents(pollEvents);
+  const events = Poll.dispatchCommand(currentState, { type: 'CreatePoll' });
   pollEvents = pollEvents.concat(events);
   response.sendStatus(201);
 });
