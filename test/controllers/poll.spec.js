@@ -15,7 +15,7 @@ describe('Create Poll', function () {
           .get('/polls')
           .expect(200)
           .end(function (error, response) {
-            const lastPoll = response.body.polls.slice(-1).pop();
+            const lastPoll = response.body.slice(-1).pop();
             expect(lastPoll.uuid).to.match(/./)
             done(error);
           });
