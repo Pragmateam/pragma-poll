@@ -1,9 +1,10 @@
 const sinon = require('sinon');
-const store = require('../../src/store');
+const Store = require('../../src/store');
 
 describe('Store', function () {
+  let store;
 
-  afterEach(store.reset);
+  beforeEach(() => { store = new Store(); });
 
   it('persists events', function () {
     const eventA = { type: 'EventACreated' }
