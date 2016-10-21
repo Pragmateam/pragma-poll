@@ -1,5 +1,5 @@
 const sinon = require('sinon');
-const Store = require('../../src/store');
+const Store = require('../../../src/core/infrastructure/event_store');
 
 describe('Store', function () {
   let store;

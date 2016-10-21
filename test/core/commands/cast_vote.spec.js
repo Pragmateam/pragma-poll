@@ -1,5 +1,5 @@
-const FakeClock = require('../support/fake-clock');
-const CastVote = require('../../src/commands/cast_vote');
+const FakeClock = require('../../support/fake-clock');
+const CastVote = require('../../../src/core/commands/cast_vote');
 
 describe('CastVote', function () {
   it('ensures the poll exists', function () {

@@ -1,6 +1,6 @@
-const CreatePoll = require('proxyquire')('../../src/commands/create_poll', {
-  '../uuid': require('../support/fake-uuid'),
-  '../clock': require('../support/fake-clock')
+const CreatePoll = require('proxyquire')('../../../src/core/commands/create_poll', {
+  '../domain/uuid': require('../../support/fake-uuid'),
+  '../domain/clock': require('../../support/fake-clock')
 });
 
 describe('CreatePoll', function () {

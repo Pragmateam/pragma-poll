@@ -1,5 +1,5 @@
-const UUID = require('../uuid');
-const Clock = require('../clock');
+const UUID = require('../domain/uuid');
+const Clock = require('../domain/clock');
 
 module.exports = function CreateRestaurant (state, attributes) {
   return [

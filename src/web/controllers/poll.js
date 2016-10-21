@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
-const Poll = require('../poll');
-const ListOfPolls = require('../poll/list_of_polls');
+const Poll = require('../../core/domain/poll');
+const ListOfPolls = require('../../core/queries/list_of_polls');
 
 module.exports = function PollController (store) {
 

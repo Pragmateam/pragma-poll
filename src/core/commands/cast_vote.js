@@ -1,5 +1,5 @@
 const assert = require('assert');
-const DefaultClock = require('../clock');
+const DefaultClock = require('../domain/clock');
 
 const neverVoted = (votes = [], targetUuid) => {
   return votes.every(vote => vote.userUuid !== targetUuid);

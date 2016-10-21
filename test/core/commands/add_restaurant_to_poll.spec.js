@@ -1,4 +1,4 @@
-const AddRestaurantToPoll = require('../../src/commands/add_restaurant_to_poll');
+const AddRestaurantToPoll = require('../../../src/core/commands/add_restaurant_to_poll');
 
 describe('AddRestaurantToPoll', function () {
   it('ensures the poll exists', function () {

@@ -1,6 +1,6 @@
-const CreateRestaurant = require('proxyquire')('../../src/commands/create_restaurant', {
-  '../uuid': require('../support/fake-uuid'),
-  '../clock': require('../support/fake-clock')
+const CreateRestaurant = require('proxyquire')('../../../src/core/commands/create_restaurant', {
+  '../domain/uuid': require('../../support/fake-uuid'),
+  '../domain/clock': require('../../support/fake-clock')
 });
 
 describe('CreateRestaurant', function () {

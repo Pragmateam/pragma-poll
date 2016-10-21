@@ -1,8 +1,8 @@
-const Store = require('../../src/store');
-const Poll = require('../../src/poll');
-const ListOfPolls = require('../../src/poll/list_of_polls');
-const Clock = require('../support/fake-clock');
-const UUID = require('../support/fake-uuid');
+const Store = require('../../../src/core/infrastructure/event_store');
+const Poll = require('../../../src/core/domain/poll');
+const ListOfPolls = require('../../../src/core/queries/list_of_polls');
+const Clock = require('../../support/fake-clock');
+const UUID = require('../../support/fake-uuid');
 
 describe('List of Polls', function () {
   it('adds a new poll to the list of polls', function() {

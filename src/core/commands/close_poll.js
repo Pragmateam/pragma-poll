@@ -1,4 +1,4 @@
-const Clock = require('../clock');
+const Clock = require('../domain/clock');
 const assert = require('assert');
 
 module.exports = function ClosePoll (state) {

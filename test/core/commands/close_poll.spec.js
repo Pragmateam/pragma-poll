@@ -1,5 +1,5 @@
-const ClosePoll = require('proxyquire')('../../src/commands/close_poll', {
-  '../clock': require('../support/fake-clock')
+const ClosePoll = require('proxyquire')('../../../src/core/commands/close_poll', {
+  '../domain/clock': require('../../support/fake-clock')
 });
 
 describe('ClosePoll', function () {

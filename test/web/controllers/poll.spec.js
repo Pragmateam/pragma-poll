@@ -1,7 +1,7 @@
 const request = require('supertest');
 
-const PollController = require('../../src/controllers/poll');
-const Store = require('../../src/store');
+const PollController = require('../../../src/web/controllers/poll');
+const Store = require('../../../src/core/infrastructure/event_store');
 
 const app = PollController(new Store());
 

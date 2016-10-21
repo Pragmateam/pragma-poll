@@ -1,5 +1,5 @@
 const sinon = require('sinon');
-const createAggregate = require('../../src/core/aggregate');
+const createAggregate = require('../../../src/core/infrastructure/aggregate');
 
 describe('Aggregate', function () {
   it('configures command handlers', function () {
