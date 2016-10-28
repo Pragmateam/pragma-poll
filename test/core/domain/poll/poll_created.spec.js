@@ -1,4 +1,4 @@
-const pollCreated = require('../../../src/core/domain/poll/poll_created');
+const pollCreated = require('../../../../src/core/domain/poll/poll_created');
 
 describe('PollCreated', function () {
 
