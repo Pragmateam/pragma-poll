@@ -7,7 +7,7 @@ describe('CreateRestaurant', function () {
   it('emits a RestaurantCreated event', function () {
     expect(CreateRestaurant({}, { name: 'McDonalds' })).to.deep.equal([
       {
-        name: 'RestaurantCreated',
+        type: 'RestaurantCreated',
         attributes: {
           name: 'McDonalds',
           uuid: 'RANDOM_UUID',

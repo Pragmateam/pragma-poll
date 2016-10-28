@@ -4,7 +4,7 @@ const Clock = require('../domain/clock');
 module.exports = function CreateRestaurant (state, attributes) {
   return [
     {
-      name: 'RestaurantCreated',
+      type: 'RestaurantCreated',
       attributes: {
         name: attributes.name,
         uuid: UUID.generate(),
