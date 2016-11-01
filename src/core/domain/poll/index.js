@@ -1,9 +1,7 @@
 const createAggregate = require('../../infrastructure/aggregate');
 
 module.exports = createAggregate({
-  initialState: {
-    polls: []
-  },
+  initialState: { },
   commandHandlers: {
     CreatePoll: require('../../commands/create_poll')
   },

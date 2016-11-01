@@ -5,9 +5,7 @@ const CreatePoll = require('proxyquire')('../../../src/core/commands/create_poll
 
 describe('CreatePoll', function () {
   it('emits a PollCreated event', function () {
-    expect(CreatePoll({
-      polls: []
-    })).to.deep.equal([
+    expect(CreatePoll({})).to.deep.equal([
       {
         type: 'PollCreated',
         attributes: {
@@ -19,13 +17,7 @@ describe('CreatePoll', function () {
   });
 
   it('ensures only one poll at time', function() {
-    const currentState = {
-      polls: [
-        {
-          uuid: 'RANDOM_UUID'
-        }
-      ]
-    };
+    const currentState = { currentPollUuid: 'RANDOM_UUID' };
 
     expect(function() {
       CreatePoll(currentState);

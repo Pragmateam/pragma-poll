@@ -11,14 +11,14 @@ describe('CastVote', function () {
   it('ensures user can only cast one vote', function() {
     expect(function() {
       CastVote(
-        {pollUuid: 'POLL_UUID', votes: [{restaurantUuid: 'DOES_NOT_MATTER', userUuid: 'USER_UUID'}]},
+        {currentPollUuid: 'POLL_UUID', votes: [{restaurantUuid: 'DOES_NOT_MATTER', userUuid: 'USER_UUID'}]},
         {restaurantUuid: 'DOES_NOT_MATTER', userUuid: 'USER_UUID' },
         FakeClock);
     }).to.throw(/only once/);
   });
 
   it('emits a VoteCasted event', function () {
-    const events = CastVote({ pollUuid: 'POLL_UUID' }, { restaurantUuid: 'RESTAURANT_UUID', userUuid: 'USER_UUID' }, FakeClock);
+    const events = CastVote({ currentPollUuid: 'POLL_UUID' }, { pollUuid: 'POLL_UUID', restaurantUuid: 'RESTAURANT_UUID', userUuid: 'USER_UUID' }, FakeClock);
     expect(events).to.deep.equal([
       {
         name: 'VoteCasted',

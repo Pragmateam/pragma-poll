@@ -6,14 +6,14 @@ const neverVoted = (votes = [], targetUuid) => {
 };
 
 module.exports = function CastVote (state, parameters, Clock = DefaultClock) {
-  assert(state.pollUuid, 'Poll must exist');
+  assert(state.currentPollUuid, 'Poll must exist');
   assert(neverVoted(state.votes, parameters.userUuid), 'User can vote only once');
 
   return [
     {
       name: 'VoteCasted',
       attributes: {
-        pollUuid: state.pollUuid,
+        pollUuid: parameters.pollUuid,
         restaurantUuid: parameters.restaurantUuid,
         userUuid: parameters.userUuid,
         date: Clock.now()

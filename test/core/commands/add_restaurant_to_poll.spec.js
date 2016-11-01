@@ -8,7 +8,7 @@ describe('AddRestaurantToPoll', function () {
   });
 
   it('emits a RestaurantAddedToPoll event', function () {
-    const events = AddRestaurantToPoll({ pollUuid: 'POLL_UUID' }, { restaurantUuid: 'RESTAURANT_UUID' });
+    const events = AddRestaurantToPoll({ currentPollUuid: 'POLL_UUID' }, { pollUuid: 'POLL_UUID', restaurantUuid: 'RESTAURANT_UUID' });
     expect(events).to.deep.equal([
       {
         name: 'RestaurantAddedToPoll',
