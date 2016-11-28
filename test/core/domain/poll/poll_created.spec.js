@@ -4,7 +4,7 @@ describe('PollCreated', function () {
 
   it('adds new poll', function() {
     const state = { };
-    const event = { attributes: { pollUuid: 1 } };
+    const event = { attributes: { uuid: 1 } };
     const expectedPollUuid = 1;
 
     const finalState = pollCreated(state, event);
@@ -14,7 +14,7 @@ describe('PollCreated', function () {
 
   it('does not change the given state', function() {
     const state = { };
-    const event = { attributes: { pollUuid: 1 } };
+    const event = { attributes: { uuid: 1 } };
 
     pollCreated(state, event);
 
