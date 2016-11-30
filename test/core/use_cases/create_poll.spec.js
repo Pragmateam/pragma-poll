@@ -7,7 +7,7 @@ describe('Create Poll use case', function () {
     const store = new Store();
     const createPoll = CreatePoll(store);
 
-    store.subscribe(function(events) {
+    store.subscribe(function (events) {
       expect(events).to.deep.equal([{
         type: 'PollCreated',
         attributes: {
@@ -21,4 +21,9 @@ describe('Create Poll use case', function () {
     createPoll();
   });
 
+  it('returns the newly created poll uuid', function () {
+    const store = new Store();
+    const createPoll = CreatePoll(store);
+    expect(createPoll()).to.equal('RANDOM_UUID');
+  });
 });
