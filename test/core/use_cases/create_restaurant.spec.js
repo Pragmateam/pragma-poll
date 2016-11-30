@@ -22,4 +22,10 @@ describe('Create Restaurant use case', function () {
     createRestaurant();
   });
 
+  it('returns the newly created restaurant uuid', function () {
+    const store = new Store();
+    const createRestaurant = CreateRestaurant(store);
+    expect(createRestaurant()).to.equal('RANDOM_UUID');
+  });
+
 });
